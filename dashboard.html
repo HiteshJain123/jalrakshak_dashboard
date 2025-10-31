@@ -49,18 +49,11 @@
             border: 2px solid white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.4);
             transition: all 0.2s ease;
-            /* 🚀 MODIFIED: Added styles for numbered pins */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: bold;
-            color: white;
-            text-shadow: 0 0 2px rgba(0,0,0,0.5);
         }
         .leaflet-map-pin:hover {
             transform: scale(1.2);
         }
+        /* 🚀 MODIFIED: Updated status colors for better contrast */
         .pin-New { background-color: #2563EB; } /* blue-600 */
         .pin-Acknowledged { background-color: #38BDF8; } /* sky-400 */
         .pin-InProgress { background-color: #F59E0B; } /* amber-500 */
@@ -165,7 +158,6 @@
                     <ul class="space-y-4" id="crew-list">
                         </ul>
                 </div>
-
                 <div class="md:col-span-2 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-5">
                     <h3 class="font-bold text-lg text-gray-800 mb-4">Route Optimization</h3>
                     <div class="flex flex-col md:flex-row gap-4">
@@ -173,23 +165,29 @@
                             <label for="assign-crew" class="block text-sm font-medium text-gray-700">Assign to Crew</label>
                             <select id="assign-crew" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                                 <option>Select a crew...</option>
+                                <option>Crew A (Idle)</option>
+                                <option>Crew B (Idle)</option>
+                                <option>Crew C (On-Site)</option>
+                                <option>Crew D (On-Route)</option>
                             </select>
                         </div>
                         <div class="flex-1">
-                            <label for="assign-reports-list" class="block text-sm font-medium text-gray-700">Select New Reports to Add</Tlabel>
-                            <div id="assign-reports-list" class="mt-1 p-2 h-24 border border-gray-300 rounded-md overflow-y-auto bg-gray-50 text-sm">
-                                <p class="text-gray-500 p-1">Select a crew first.</p>
+                            <label for="assign-reports" class="block text-sm font-medium text-gray-700">Select New Reports to Add</label>
+                            <div class="mt-1 p-2 h-24 border border-gray-300 rounded-md overflow-y-auto bg-gray-50 text-sm">
+                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #1 (Critical)</p>
+                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #4 (High)</p>
+                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #7 (Medium)</p>
+                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #8 (Medium)</p>
                             </div>
                         </div>
-                        <button id="optimize-route-btn" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors h-fit self-end">Optimize Route</button>
+                        <button class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors h-fit self-end">Optimize Route</button>
                     </div>
                      <div class="mt-4 bg-gray-100 rounded-lg p-3">
-                         <h4 id="route-map-title" class="font-semibold text-gray-800">Select crew and reports to see route.</h4>
-                         <div id="route-map" class="w-full h-80 rounded-md mt-2 bg-gray-200 z-10"></div>
+                         <h4 class="font-semibold text-gray-800">Optimized Route for Crew A:</h4>
+                         <img src="https://storage.googleapis.com/support-forums-api/attachment/message-59123000-6707707561130458477.jpg"/>
                          <a href="#" class="text-blue-600 hover:underline mt-2 inline-block">Send route to crew's device</a>
                      </div>
                 </div>
-
             </div>
         </div>
 
@@ -197,10 +195,17 @@
             <h2 class="text-xl font-bold text-gray-700 mb-4">Analytics & Reporting</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-5">
+                    <h3 class="font-bold text-lg text-gray-800 mb-4">Leak Hotspot Heatmap (Last 6 Months)</h3>
+                    <div class="bg-gray-100 rounded-lg p-4">
+                         <img src="https://aflyax.github.io/images/boston_heatmap.png" alt="A heatmap of leak reports" class="w-full h-auto object-contain rounded-lg"/>
+                         
+                    </div>
+                </div>
+                <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-5">
                     <h3 class="font-bold text-lg text-gray-800 mb-4">Performance Dashboard</h3>
                     <div class="space-y-6">
                         <div>
-                            <h4 class="font-medium text-gray-700">Average Time-to-Resolution (Mock Data)</h4>
+                            <h4 class="font-medium text-gray-700">Average Time-to-Resolution </h4>
                             <canvas id="resolutionTimeChart" class="mt-2"></canvas>
                         </div>
                         <div>
@@ -322,6 +327,7 @@
     <script>
         // --- Mock Data (Expanded & Themed) ---
 
+        // 🚀 NEW: Mock Sponsor Data
         const sponsor = {
             name: 'EcoBrand',
             logo: 'https://placehold.co/120x40/F3F4F6/9CA3AF?text=EcoBrand',
@@ -336,8 +342,9 @@
                 location: 'Koramangala, Bengaluru',
                 lat: 12.9352,
                 lng: 77.6245,
-                image: 'https://images.unsplash.com/photo-1580377968131-36638b0EA7a7?q=80&w=800&auto=format&fit=crop',
+                image: 'https://biegplumbing.com/wp-content/uploads/2018/07/Water-Line-Break-157615390-585494d23df78ce2c33fc8b7-2.jpg',
                 timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000).toISOString(),
+                // 🚀 MODIFIED: Added 'Acknowledged' status
                 status: 'Acknowledged', 
                 aiAnalysis: {
                     type: 'Burst',
@@ -350,8 +357,7 @@
                 commLog: [ 
                     { from: 'bot', msg: 'Report received. (Ref #1)', time: '1 hour ago' },
                     { from: 'bot', msg: 'Report Acknowledged. We are verifying the issue.', time: '5 minutes ago' }
-                ],
-                country: 'India' // 🚀 NEW
+                ]
             },
             {
                 id: 2,
@@ -360,7 +366,7 @@
                 location: 'Indiranagar, Bengaluru',
                 lat: 12.9719,
                 lng: 77.6412,
-                image: 'https://images.unsplash.com/photo-1622079253456-55e1654a93e3?q=80&w=800&auto=format&fit=crop',
+                image: 'https://www.ultratechcement.com/content/dam/ultratechcement/new-blogs-images/water-proofing-8.jpg',
                 timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
                 status: 'In Progress',
                 aiAnalysis: {
@@ -375,8 +381,7 @@
                     { from: 'bot', msg: 'Report received. (Ref #2)', time: '5 hours ago' },
                     { from: 'bot', msg: 'Report Acknowledged. We are verifying the issue.', time: '4 hours ago' },
                     { from: 'operator', msg: 'Report verified. Crew A has been assigned.', time: '3 hours ago' }
-                ],
-                country: 'India' // 🚀 NEW
+                ]
             },
             {
                 id: 3,
@@ -385,7 +390,7 @@
                 location: 'Jayanagar, Bengaluru',
                 lat: 12.9254,
                 lng: 77.5928,
-                image: 'https://images.unsplash.com/photo-1561587390-4568014a2bae?q=80&w=800&auto=format&fit=crop',
+                image: 'https://nz.rs-cdn.com/images/nwsz8-56ag4/blog/e9203d0977231ff2ec4686bd5061c32c__17a6/zoom793x594z100000cw793@2x.jpg.webp?etag=b0a8086cd2a2fe7966be5b0cf8a43ea0',
                 timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
                 status: 'Resolved',
                 aiAnalysis: {
@@ -401,8 +406,7 @@
                     { from: 'operator', msg: 'Report verified. Crew C assigned.', time: '1 day ago' },
                     { from: 'operator', msg: '🎉 Leak Fixed! Your action helped save an estimated 1,000 liters. Thank you!', time: '4 hours ago' },
                     { from: 'bot', msg: `🎁 Your ${sponsor.name} reward has been sent!`, time: '4 hours ago' }
-                ],
-                country: 'India' // 🚀 NEW
+                ]
             },
             {
                 id: 4,
@@ -411,7 +415,7 @@
                 location: 'Whitefield, Bengaluru',
                 lat: 12.9698,
                 lng: 77.7499,
-                image: 'https://images.unsplash.com/photo-1621912239191-9964039e1414?q=80&w=800&auto=format&fit=crop',
+                image: 'https://biegplumbing.com/wp-content/uploads/2018/07/Water-Line-Break-157615390-585494d23df78ce2c33fc8b7-2.jpg',
                 timestamp: new Date(Date.now() - 10 * 60 * 60 * 1000).toISOString(),
                 status: 'New',
                 aiAnalysis: {
@@ -422,8 +426,7 @@
                     duplicateFlag: null
                 },
                 userPoints: 80,
-                 commLog: [ { from: 'bot', msg: 'Report received. (Ref #4)', time: '10 hours ago' } ],
-                 country: 'India' // 🚀 NEW
+                 commLog: [ { from: 'bot', msg: 'Report received. (Ref #4)', time: '10 hours ago' } ]
             },
             {
                 id: 5,
@@ -432,7 +435,7 @@
                 location: 'Sandton, Johannesburg',
                 lat: -26.1076,
                 lng: 28.0567,
-                image: 'https://images.unsplash.com/photo-1510127034890-ba2750817415?q=80&w=800&auto=format&fit=crop',
+                image: 'https://media.newindianexpress.com/TNIE%2Fimport%2F2021%2F6%2F23%2Foriginal%2Fwater_theft.JPG?w=480&auto=format%2Ccompress&fit=max',
                 timestamp: new Date(Date.now() - 15 * 60 * 60 * 1000).toISOString(),
                 status: 'New',
                 aiAnalysis: {
@@ -443,8 +446,7 @@
                     duplicateFlag: null
                 },
                 userPoints: 300,
-                 commLog: [ { from: 'bot', msg: 'Report received. (Ref #5)', time: '15 hours ago' } ],
-                 country: 'South Africa' // 🚀 NEW
+                 commLog: [ { from: 'bot', msg: 'Report received. (Ref #5)', time: '15 hours ago' } ]
             },
             {
                 id: 6,
@@ -453,7 +455,7 @@
                 location: 'Sea Point, Cape Town',
                 lat: -33.9180,
                 lng: 18.3918,
-                image: 'https://images.unsplash.com/photo-1601057186105-9706380c9f1e?q=80&w=800&auto=format&fit=crop',
+                image: 'https://www.comfortecphc.com/_managedFiles/posts/1522255085.jpeg',
                 timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
                 status: 'In Progress',
                 aiAnalysis: {
@@ -467,8 +469,7 @@
                  commLog: [ 
                       { from: 'bot', msg: 'Report received. (Ref #6)', time: '1 day ago' },
                       { from: 'operator', msg: 'Thanks David, Crew B is investigating.', time: '6 hours ago' }
-                 ],
-                 country: 'South Africa' // 🚀 NEW
+                 ]
             },
             {
                 id: 7,
@@ -477,7 +478,7 @@
                 location: 'Musgrave, Durban',
                 lat: -29.8491,
                 lng: 30.9800,
-                image: 'https://images.unsplash.com/photo-1498496294664-d9372eb521f3?q=80&w=800&auto=format&fit=crop',
+                image: 'https://nz.rs-cdn.com/images/nwsz8-56ag4/blog/e9203d0977231ff2ec4686bd5061c32c__17a6/zoom793x594z100000cw793@2x.jpg.webp?etag=b0a8086cd2a2fe7966be5b0cf8a43ea0',
                 timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
                 status: 'Resolved',
                 aiAnalysis: {
@@ -492,67 +493,19 @@
                     { from: 'bot', msg: 'Report received. (Ref #7)', time: '3 days ago' }, 
                     { from: 'operator', msg: 'Resolved.', time: '1 day ago' },
                     { from: 'bot', msg: `🎁 Your ${sponsor.name} reward has been sent!`, time: '1 day ago' }
-                ],
-                country: 'South Africa' // 🚀 NEW
+                ]
             },
-            // 🚀 NEW: Added Report 8 (South Africa)
-            {
-                id: 8,
-                userName: 'Sipho Moyo',
-                userAvatar: 'https://placehold.co/100x100/F3E8FF/6B21A8?text=SM',
-                location: 'Centurion, Gauteng',
-                lat: -25.8617,
-                lng: 28.1887,
-                image: 'https://images.unsplash.com/photo-1598232616220-c425b8c34f0c?q=80&w=800&auto=format&fit=crop',
-                timestamp: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
-                status: 'New',
-                aiAnalysis: {
-                    type: 'Leak',
-                    confidence: 91,
-                    severity: 'Medium',
-                    details: 'Constant water flow from a pavement crack. Residential area.',
-                    duplicateFlag: null
-                },
-                userPoints: 40,
-                 commLog: [ { from: 'bot', msg: 'Report received. (Ref #8)', time: '3 hours ago' } ],
-                 country: 'South Africa' // 🚀 NEW
-            },
-            // 🚀 NEW: Added Report 9 (South Africa)
-            {
-                id: 9,
-                userName: 'Riaan van der Merwe',
-                userAvatar: 'https://placehold.co/100x100/FFF7ED/9A3412?text=RV',
-                location: 'Midrand, Johannesburg',
-                lat: -25.9965,
-                lng: 28.1281,
-                image: 'https://images.unsplash.com/photo-1542025171-806ace3a55ff?q=80&w=800&auto=format&fit=crop',
-                timestamp: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
-                status: 'Acknowledged',
-                aiAnalysis: {
-                    type: 'Burst',
-                    confidence: 95,
-                    severity: 'High',
-                    details: 'Water gushing from a construction site boundary.',
-                    duplicateFlag: null
-                },
-                userPoints: 110,
-                 commLog: [ 
-                     { from: 'bot', msg: 'Report received. (Ref #9)', time: '8 hours ago' },
-                     { from: 'bot', msg: 'Report Acknowledged. We are verifying the issue.', time: '1 hour ago' }
-                 ],
-                 country: 'South Africa' // 🚀 NEW
-            }
         ];
         
-        // 🚀 MODIFIED: Added lat/lng/country to crews
         const crews = [
-            { id: 1, name: 'Crew A (Alpha)', status: 'Idle', location: 'Sandton Depot', lat: -26.1076, lng: 28.0567, country: 'South Africa' },
-            { id: 2, name: 'Crew B (Bravo)', status: 'On-Route', location: 'To Sea Point', lat: -33.9180, lng: 18.3918, country: 'South Africa' },
-            { id: 3, name: 'Crew C (Charlie)', status: 'On-Site', location: 'Jayanagar Site', lat: 12.9254, lng: 77.5928, country: 'India' },
-            { id: 4, name: 'Crew D (Delta)', status: 'Idle', location: 'Arcadia Depot', lat: -25.7441, lng: 28.2220, country: 'South Africa' },
+            { id: 1, name: 'Crew A (Alpha)', status: 'Idle', location: 'Sandton Depot' },
+            { id: 2, name: 'Crew B (Bravo)', status: 'On-Route', location: 'To Sea Point' },
+            { id: 3, name: 'Crew C (Charlie)', status: 'On-Site', location: 'Jayanagar Site' },
+            { id: 4, name: 'Crew D (Delta)', status: 'Idle', location: 'Arcadia Depot' },
         ];
         
         // --- Color Maps ---
+        // 🚀 MODIFIED: Added 'Acknowledged' status
         const statusColors = {
             New: 'bg-blue-100 text-blue-800 border-l-8 border-blue-500',
             Acknowledged: 'bg-sky-100 text-sky-800 border-l-8 border-sky-500',
@@ -588,9 +541,6 @@
         let activeTab = 'triage';
         let map = null;
         let mapMarkers = [];
-        let routeMap = null;
-        let routeMapMarkers = [];
-        let routeMapLine = null;
         let reportTypesChart = null;
         let resolutionTimeChart = null;
 
@@ -718,6 +668,7 @@
                 const type = report.aiAnalysis.type || 'Other';
                 const typeBadge = typeBadges[type] || typeBadges['Other'];
                 
+                // 🚀 MODIFIED: Added AI Type and Confidence bar to the report card
                 const reportCardHTML = `
                     <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:ring-2 hover:ring-blue-400 transition-all duration-300 report-card cursor-pointer animate-pop-in" data-id="${report.id}" style="animation-delay: ${index * 50}ms;">
                         <div class="p-4 ${borderColorClass}">
@@ -806,12 +757,10 @@
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
-            
-            // 🚀 MODIFIED: Fit map bounds to show all reports
-            const allCoords = reports.map(r => [r.lat, r.lng]);
-            if(allCoords.length > 0) {
-                map.fitBounds(allCoords, { padding: [50, 50] });
-            }
+            map.fitBounds([
+                [-33.9180, 18.3918], // Cape Town
+                [12.9719, 77.6412]   // Bengaluru
+            ]);
         }
         
         function renderLeafletPins() {
@@ -931,143 +880,6 @@
             });
         }
 
-        // --- 🚀 MODIFIED: Functions for Crew Route Map ---
-
-        function initializeRouteMap() {
-            if (routeMap) return; // Only init once
-            routeMap = L.map('route-map').setView([-29.85, 24.00], 5); // Center on South Africa
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(routeMap);
-        }
-        
-        // 🚀 MODIFIED: This function now ONLY populates crews and clears the dependent fields.
-        function renderCrewPageData() {
-            const assignCrewSelect = document.getElementById('assign-crew');
-            
-            // Populate crew dropdown
-            assignCrewSelect.innerHTML = '<option value="">Select a crew...</option>';
-            crews.forEach(crew => {
-                // Added country for clarity
-                assignCrewSelect.innerHTML += `<option value="${crew.id}">${crew.name} (${crew.status}) - [${crew.country}]</option>`;
-            });
-            
-            // Clear reports list on (re)load
-            const assignReportsDiv = document.getElementById('assign-reports-list');
-            assignReportsDiv.innerHTML = '<p class="text-gray-500 p-1">Select a crew first.</p>';
-
-            // Clear map title
-            document.getElementById('route-map-title').textContent = 'Select crew and reports to see route.';
-
-            // Clear old map layers
-            if (routeMapLine) routeMapLine.remove();
-            routeMapMarkers.forEach(m => m.remove());
-            routeMapMarkers = [];
-        }
-
-        // 🚀 NEW: Function to populate reports based on selected crew
-        function populateAssignableReports() {
-            const assignReportsDiv = document.getElementById('assign-reports-list');
-            const crewId = document.getElementById('assign-crew').value;
-            
-            if (!crewId) {
-                assignReportsDiv.innerHTML = '<p class="text-gray-500 p-1">Select a crew first.</p>';
-                return;
-            }
-
-            const selectedCrew = crews.find(c => c.id == crewId);
-            if (!selectedCrew) return;
-
-            // Filter reports by status AND country
-            const unassignedReports = reports.filter(r => 
-                (r.status === 'New' || r.status === 'Acknowledged') && 
-                r.country === selectedCrew.country
-            );
-            
-            assignReportsDiv.innerHTML = '';
-            if (unassignedReports.length === 0) {
-                 assignReportsDiv.innerHTML = `<p class="text-sm text-gray-500 p-1">No assignable reports in ${selectedCrew.country}.</p>`;
-                 return;
-            }
-
-            unassignedReports.forEach(report => {
-                assignReportsDiv.innerHTML += `
-                    <div class="flex items-center p-1 hover:bg-gray-200 rounded">
-                        <input id="report-chk-${report.id}" data-id="${report.id}" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                        <label for="report-chk-${report.id}" class="ml-2 block text-sm text-gray-800 cursor-pointer">
-                            Report #${report.id} (${report.aiAnalysis.severity}) - ${report.location.split(',')[0]}
-                        </label>
-                    </div>
-                `;
-            });
-        }
-        
-        function handleOptimizeRoute() {
-            if (!routeMap) initializeRouteMap(); // Failsafe
-
-            const crewId = document.getElementById('assign-crew').value;
-            const selectedReportBoxes = document.querySelectorAll('#assign-reports-list input[type="checkbox"]:checked');
-            
-            if (!crewId) {
-                alert('Please select a crew.');
-                return;
-            }
-            if (selectedReportBoxes.length === 0) {
-                alert('Please select at least one report to assign.');
-                return;
-            }
-
-            const crew = crews.find(c => c.id == crewId);
-            const crewLocation = [crew.lat, crew.lng];
-            
-            const reportIds = Array.from(selectedReportBoxes).map(box => parseInt(box.dataset.id));
-            const selectedReportsData = reports.filter(r => reportIds.includes(r.id));
-
-            // Sort by severity to make a *slightly* smarter route
-            selectedReportsData.sort((a, b) => {
-                 const severityOrder = { 'Critical': 4, 'High': 3, 'Medium': 2, 'Low': 1 };
-                 return (severityOrder[b.aiAnalysis.severity] || 0) - (severityOrder[a.aiAnalysis.severity] || 0);
-            });
-            
-            const sortedReportLocations = selectedReportsData.map(r => [r.lat, r.lng]);
-            const routePoints = [crewLocation, ...sortedReportLocations];
-            
-            // --- Draw on map ---
-            if (routeMapLine) routeMapLine.remove();
-            routeMapMarkers.forEach(m => m.remove());
-            routeMapMarkers = [];
-            
-            const crewIcon = L.divIcon({
-                className: 'custom-leaflet-icon',
-                html: `<div class="leaflet-map-pin" style="background-color: #1D4ED8; border: 2px solid white; width: 1.25rem; height: 1.25rem;"></div>`,
-                iconSize: [20, 20],
-                iconAnchor: [10, 10]
-            });
-            const crewMarker = L.marker(crewLocation, { icon: crewIcon, zIndexOffset: 1000 })
-                                .addTo(routeMap)
-                                .bindPopup(`<b>${crew.name}</b><br>${crew.location}`);
-            routeMapMarkers.push(crewMarker);
-
-            sortedReportLocations.forEach((loc, index) => {
-                 const report = selectedReportsData[index];
-                 const reportIcon = L.divIcon({
-                    className: 'custom-leaflet-icon',
-                    html: `<div class="leaflet-map-pin pin-${report.status.replace(' ','')}">${index + 1}</div>`,
-                    iconSize: [16, 16],
-                    iconAnchor: [8, 8]
-                });
-                 const marker = L.marker(loc, { icon: reportIcon }).addTo(routeMap)
-                                    .bindPopup(`<b>Report #${report.id}</b><br>${report.location}`);
-                 routeMapMarkers.push(marker);
-            });
-            
-            routeMapLine = L.polyline(routePoints, { color: '#2563EB', weight: 4, opacity: 0.8 }).addTo(routeMap);
-            
-            routeMap.fitBounds(routeMapLine.getBounds(), { padding: [50, 50] });
-
-            document.getElementById('route-map-title').textContent = `Optimized Route for ${crew.name}`;
-        }
-
 
         // --- Modal Functions ---
         
@@ -1079,12 +891,14 @@
             modalEl.classList.remove('hidden');
             modalEl.classList.add('flex');
             
+            // Populate basic info
             document.getElementById('modal-image').src = report.image;
             document.getElementById('modal-location').textContent = report.location;
             const statusEl = document.getElementById('modal-status');
             statusEl.textContent = `Status: ${report.status}`;
             statusEl.className = `inline-block px-3 py-1 text-sm font-semibold rounded-full mb-4 ${statusColors[report.status].split(' ')[0]} ${statusColors[report.status].split(' ')[1]}`;
             
+            // Populate AI Info
             const type = report.aiAnalysis.type || 'Other';
             const typeBadge = typeBadges[type] || typeBadges['Other'];
             const typeEl = document.getElementById('ai-type-badge');
@@ -1111,14 +925,17 @@
                 mergeBtn.classList.add('hidden');
             }
             
+            // Populate User Info
             document.getElementById('modal-avatar').src = report.userAvatar;
             document.getElementById('modal-username').textContent = report.userName;
             document.getElementById('modal-points-text').textContent = `${report.userPoints} Points (Trust Score: ${report.userPoints > 100 ? 'High' : 'Medium'})`;
             document.getElementById('modal-timestamp').textContent = `Reported on ${new Date(report.timestamp).toLocaleString()}`;
             
+            // Populate Comm Log
             const commLogEl = document.getElementById('modal-comm-log');
             renderCommLog(report.commLog);
             
+            // 🚀 MODIFIED: Re-render comm log in its own function
             function renderCommLog(logData) {
                 commLogEl.innerHTML = '';
                 logData.forEach(log => {
@@ -1132,6 +949,7 @@
                 commLogEl.scrollTop = commLogEl.scrollHeight;
             }
 
+            // Set up manual chat sender
             const commInput = document.getElementById('comm-log-input');
             const commSendBtn = document.getElementById('comm-log-send-btn');
             
@@ -1143,9 +961,10 @@
                 commInput.value = '';
                 renderCommLog(report.commLog);
             };
-            commSendBtn.removeEventListener('click', commSendBtnListener);
-            commSendBtn.addEventListener('click', commSendBtnListener);
+            commSendBtn.removeEventListener('click', commSendBtnListener); // Clean old
+            commSendBtn.addEventListener('click', commSendBtnListener); // Add new
 
+            // --- 🚀 NEW: Workflow Action Button Logic ---
             const actionGroup = document.getElementById('action-button-group');
             const ackBtn = document.getElementById('action-acknowledge-btn');
             const assignBtn = document.getElementById('action-assign-btn');
@@ -1154,6 +973,7 @@
             const rewardSection = document.getElementById('resolution-reward-section');
             const rewardBtn = document.getElementById('action-send-reward-btn');
 
+            // Reset UI state
             ackBtn.style.display = 'none';
             assignBtn.style.display = 'none';
             resolveBtn.style.display = 'none';
@@ -1161,6 +981,7 @@
             rewardSection.classList.remove('active');
             actionGroup.style.display = 'flex';
 
+            // Show buttons based on status
             if (report.status === 'New') {
                 ackBtn.style.display = 'flex';
             } else if (report.status === 'Acknowledged') {
@@ -1169,9 +990,12 @@
             } else if (report.status === 'In Progress') {
                 resolveBtn.style.display = 'flex';
             } else if (report.status === 'Resolved') {
-                actionGroup.style.display = 'none';
+                actionGroup.style.display = 'none'; // All actions done
             }
             
+            // --- Add Event Listeners (using clones to prevent duplicates) ---
+            
+            // 1. Acknowledge Button
             const newAckBtn = ackBtn.cloneNode(true);
             newAckBtn.addEventListener('click', () => {
                 const newLog = { from: 'bot', msg: 'Report Acknowledged. We are verifying the issue.', time: 'Just now' };
@@ -1180,6 +1004,7 @@
             });
             ackBtn.parentNode.replaceChild(newAckBtn, ackBtn);
 
+            // 2. Assign Button
             const newAssignBtn = assignBtn.cloneNode(true);
             newAssignBtn.addEventListener('click', () => {
                 const crewName = crewDropdown.value;
@@ -1193,13 +1018,15 @@
             });
             assignBtn.parentNode.replaceChild(newAssignBtn, assignBtn);
 
+            // 3. Resolve Button (opens reward panel)
             const newResolveBtn = resolveBtn.cloneNode(true);
             newResolveBtn.addEventListener('click', () => {
-                actionGroup.style.display = 'none';
-                rewardSection.classList.add('active');
+                actionGroup.style.display = 'none'; // Hide action buttons
+                rewardSection.classList.add('active'); // Show reward panel
             });
             resolveBtn.parentNode.replaceChild(newResolveBtn, resolveBtn);
 
+            // 4. Send Reward Button (final step)
             const newRewardBtn = rewardBtn.cloneNode(true);
             newRewardBtn.addEventListener('click', () => {
                 const litersSaved = document.getElementById('liters-saved-input').value || '0';
@@ -1219,6 +1046,7 @@
             modalEl.classList.add('hidden');
             modalEl.classList.remove('flex');
             
+            // Clean up comm log listener
             const commSendBtn = document.getElementById('comm-log-send-btn');
             if (commSendBtnListener) {
                 commSendBtn.removeEventListener('click', commSendBtnListener);
@@ -1289,16 +1117,8 @@
                      setTimeout(() => map.invalidateSize(), 10);
                 }
                 rerenderTriage();
-            
             } else if (activeTab === 'crews') {
                 renderCrews();
-                renderCrewPageData(); // 🚀 MODIFIED: This now just populates crew list & clears
-                initializeRouteMap(); 
-                
-                if(routeMap) {
-                     setTimeout(() => routeMap.invalidateSize(), 10);
-                }
-                
             } else if (activeTab === 'analytics') {
                 renderAnalyticsCharts();
             }
@@ -1317,7 +1137,6 @@
                 rerenderTriage();
             } else if (activeTab === 'crews') {
                 renderCrews();
-                renderCrewPageData(); // 🚀 MODIFIED: This re-populates crews and clears lists
             } else if (activeTab === 'analytics') {
                 renderAnalyticsCharts();
             }
@@ -1332,11 +1151,6 @@
             closeModalBtn.addEventListener('click', closeModal);
             document.getElementById('report-list').addEventListener('click', handleReportClick);
             
-            document.getElementById('optimize-route-btn').addEventListener('click', handleOptimizeRoute);
-            
-            // 🚀 NEW: Add listener for crew dropdown change
-            document.getElementById('assign-crew').addEventListener('change', populateAssignableReports);
-
             modalEl.addEventListener('click', (e) => {
                 if (e.target === modalEl) {
                     closeModal();
