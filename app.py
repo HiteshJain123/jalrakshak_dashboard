@@ -11,5 +11,8 @@ with open("dashboard.html", "r", encoding="utf-8") as f:
 # st.components.v1.html(html_data, height=800, scrolling=False)
 
 
-st.components.v1.html(html_data, height=st.session_state.get('height', 800), scrolling=False)
+# st.components.v1.html(html_data, height=st.session_state.get('height', 800), scrolling=False)
+
+st.components.v1.html(html_data, height = 2000)
+
 
