@@ -165,25 +165,27 @@
                             <label for="assign-crew" class="block text-sm font-medium text-gray-700">Assign to Crew</label>
                             <select id="assign-crew" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                                 <option>Select a crew...</option>
-                                <option>Crew A (Idle)</option>
-                                <option>Crew B (Idle)</option>
-                                <option>Crew C (On-Site)</option>
-                                <option>Crew D (On-Route)</option>
+                                <option>Crew 1 (Idle)</option>
+                                <option>Crew 2 (Idle)</option>
+                                <option>Crew 3 (On-Site)</option>
+                                <option>Crew 4 (On-Route)</option>
+                                <option>Crew 5 (Idle)</option>
+                                <option>Crew 6 (Idle)</option>
                             </select>
                         </div>
                         <div class="flex-1">
                             <label for="assign-reports" class="block text-sm font-medium text-gray-700">Select New Reports to Add</label>
                             <div class="mt-1 p-2 h-24 border border-gray-300 rounded-md overflow-y-auto bg-gray-50 text-sm">
-                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #1 (Critical)</p>
-                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #4 (High)</p>
-                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #7 (Medium)</p>
-                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #8 (Medium)</p>
+                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #4 (Critical)</p>
+                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #8 (High)</p>
+                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #11 (Medium)</p>
+                                <p class="cursor-pointer hover:bg-gray-200 p-1 rounded">Report #14 (Medium)</p>
                             </div>
                         </div>
                         <button class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors h-fit self-end">Optimize Route</button>
                     </div>
                      <div class="mt-4 bg-gray-100 rounded-lg p-3">
-                         <h4 class="font-semibold text-gray-800">Optimized Route for Crew A:</h4>
+                         <h4 class="font-semibold text-gray-800">Optimized Route for Crew 1:</h4>
                          <img src="https://storage.googleapis.com/support-forums-api/attachment/message-59123000-6707707561130458477.jpg"/>
                          <a href="#" class="text-blue-600 hover:underline mt-2 inline-block">Send route to crew's device</a>
                      </div>
@@ -194,13 +196,29 @@
         <div id="analytics-page" class="tab-page hidden">
             <h2 class="text-xl font-bold text-gray-700 mb-4">Analytics & Reporting</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-5">
-                    <h3 class="font-bold text-lg text-gray-800 mb-4">Leak Hotspot Heatmap (Last 6 Months)</h3>
-                    <div class="bg-gray-100 rounded-lg p-4">
-                         <img src="https://aflyax.github.io/images/boston_heatmap.png" alt="A heatmap of leak reports" class="w-full h-auto object-contain rounded-lg"/>
-                         
+                
+                <div class="space-y-8">
+                    <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-5">
+                        <h3 class="font-bold text-lg text-gray-800 mb-4">Leak Hotspot Heatmap (Last 6 Months)</h3>
+                        <div class="bg-gray-100 rounded-lg p-4">
+                             <img src="https://aflyax.github.io/images/boston_heatmap.png" alt="A heatmap of leak reports" class="w-full h-auto object-contain rounded-lg"/>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-5 border-l-4 border-blue-600">
+                        <h3 class="font-bold text-lg text-gray-800 mb-4 flex items-center gap-2 text-blue-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            Analytical Summary & Key Conclusions
+                        </h3>
+                        <div id="analytics-summary" class="text-gray-700 space-y-3 text-sm">
+                            <p><strong>Hotspot Regions & User Awareness:</strong> Durban (KZN) and the Gauteng metros (Joburg/Pretoria) currently hold the highest concentration of open and resolved reports. This correlation suggests high user awareness and JalRakshak program effectiveness in these key urban centers.</p>
+                            <p><strong>Resolution Performance:</strong> Cape Town reports show the fastest average time-to-resolution, with 3 recent reports fixed in two days or less. Durban and Pretoria have the highest number of pending (New, Acknowledged, or In Progress) high-severity issues, indicating resource or prioritization strain in these regions.</p>
+                            <p><strong>Immediate Action:</strong> Critical leaks, such as the burst pipe in Pretoria (Report #4), require immediate dispatch to prevent high water loss, despite the high number of other pending medium-severity issues in other regions.</p>
+                            <p class="text-xs italic pt-2 border-t mt-3 text-gray-500">Note: This summary is based on a snapshot of 15 mock reports from the initial data set.</p>
+                        </div>
                     </div>
                 </div>
+
                 <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-5">
                     <h3 class="font-bold text-lg text-gray-800 mb-4">Performance Dashboard</h3>
                     <div class="space-y-6">
@@ -300,10 +318,12 @@
                 <div id="action-button-group" class="mt-6 flex flex-col sm:flex-row gap-3">
                      <select id="assign-crew-dropdown" class="text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                          <option value="">Assign to...</option>
-                         <option value="Crew A">Crew A</option>
-                         <option value="Crew B">Crew B</option>
-                         <option value="Crew C">Crew C</option>
-                         <option value="Crew D">Crew D</option>
+                         <option value="Crew 1">Crew 1</option>
+                         <option value="Crew 2">Crew 2</option>
+                         <option value="Crew 3">Crew 3</option>
+                         <option value="Crew 4">Crew 4</option>
+                         <option value="Crew 5">Crew 5</option>
+                         <option value="Crew 6">Crew 6</option>
                      </select>
                      
                      <button id="action-acknowledge-btn" class="flex-1 bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
@@ -335,16 +355,16 @@
         };
 
         const initialReports = [
+             // 🚀 MODIFIED: Added 15 reports, all SA-localised
             {
                 id: 1,
-                userName: 'Rajesh Kumar',
-                userAvatar: 'https://placehold.co/100x100/EBF4FF/3B82F6?text=RK',
-                location: 'Koramangala, Bengaluru',
-                lat: 12.9352,
-                lng: 77.6245,
-                image: 'https://biegplumbing.com/wp-content/uploads/2018/07/Water-Line-Break-157615390-585494d23df78ce2c33fc8b7-2.jpg',
+                userName: 'Sipho Dlamini',
+                userAvatar: 'https://placehold.co/100x100/EBF4FF/3B82F6?text=SD',
+                location: 'Midrand, Johannesburg',
+                lat: -25.9961,
+                lng: 28.1219,
+                image: 'https://www.paloaltoplumbing.net/wp-content/uploads/2021/01/Methods-to-Detect-Water-Leaks-.jpg',
                 timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000).toISOString(),
-                // 🚀 MODIFIED: Added 'Acknowledged' status
                 status: 'Acknowledged', 
                 aiAnalysis: {
                     type: 'Burst',
@@ -361,12 +381,12 @@
             },
             {
                 id: 2,
-                userName: 'Priya Sharma',
-                userAvatar: 'https://placehold.co/100x100/FEF3C7/F59E0B?text=PS',
-                location: 'Indiranagar, Bengaluru',
-                lat: 12.9719,
-                lng: 77.6412,
-                image: 'https://www.ultratechcement.com/content/dam/ultratechcement/new-blogs-images/water-proofing-8.jpg',
+                userName: 'Nomusa Mkhize',
+                userAvatar: 'https://placehold.co/100x100/FEF3C7/F59E0B?text=NM',
+                location: 'Durban North, Durban',
+                lat: -29.7709,
+                lng: 31.0268,
+                image: 'https://warmserve-services.co.uk/wp-content/uploads/2024/10/AdobeStock_234736184-1024x683.jpg',
                 timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
                 status: 'In Progress',
                 aiAnalysis: {
@@ -380,17 +400,17 @@
                 commLog: [
                     { from: 'bot', msg: 'Report received. (Ref #2)', time: '5 hours ago' },
                     { from: 'bot', msg: 'Report Acknowledged. We are verifying the issue.', time: '4 hours ago' },
-                    { from: 'operator', msg: 'Report verified. Crew A has been assigned.', time: '3 hours ago' }
+                    { from: 'operator', msg: 'Report verified. Crew 1 has been assigned.', time: '3 hours ago' }
                 ]
             },
             {
                 id: 3,
-                userName: 'Amit Singh',
-                userAvatar: 'https://placehold.co/100x100/FEE2E2/DC2626?text=AS',
-                location: 'Jayanagar, Bengaluru',
-                lat: 12.9254,
-                lng: 77.5928,
-                image: 'https://nz.rs-cdn.com/images/nwsz8-56ag4/blog/e9203d0977231ff2ec4686bd5061c32c__17a6/zoom793x594z100000cw793@2x.jpg.webp?etag=b0a8086cd2a2fe7966be5b0cf8a43ea0',
+                userName: 'Lwazi Molefe',
+                userAvatar: 'https://placehold.co/100x100/FEE2E2/DC2626?text=LM',
+                location: 'Claremont, Cape Town',
+                lat: -33.9877,
+                lng: 18.4674,
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlYPUlyPdI7fHL63uNNeNHcuAuVcHUqnhFKw&s',
                 timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
                 status: 'Resolved',
                 aiAnalysis: {
@@ -403,23 +423,23 @@
                 userPoints: 250,
                 commLog: [
                     { from: 'bot', msg: 'Report received. (Ref #3)', time: '2 days ago' },
-                    { from: 'operator', msg: 'Report verified. Crew C assigned.', time: '1 day ago' },
+                    { from: 'operator', msg: 'Report verified. Crew 3 assigned.', time: '1 day ago' },
                     { from: 'operator', msg: '🎉 Leak Fixed! Your action helped save an estimated 1,000 liters. Thank you!', time: '4 hours ago' },
                     { from: 'bot', msg: `🎁 Your ${sponsor.name} reward has been sent!`, time: '4 hours ago' }
                 ]
             },
             {
                 id: 4,
-                userName: 'Sunita Rao',
-                userAvatar: 'https://placehold.co/100x100/E5E7EB/4B5563?text=SR',
-                location: 'Whitefield, Bengaluru',
-                lat: 12.9698,
-                lng: 77.7499,
-                image: 'https://biegplumbing.com/wp-content/uploads/2018/07/Water-Line-Break-157615390-585494d23df78ce2c33fc8b7-2.jpg',
+                userName: 'Zanele Ndlovu',
+                userAvatar: 'https://placehold.co/100x100/E5E7EB/4B5563?text=ZN',
+                location: 'Pretoria East, Pretoria',
+                lat: -25.7592,
+                lng: 28.2327,
+                image: 'https://phdyuma.com/wp-content/uploads/2024/02/PL-1495624975-Water-leakage-at-shut-off-valve-and-pipe-1024x683.jpg',
                 timestamp: new Date(Date.now() - 10 * 60 * 60 * 1000).toISOString(),
                 status: 'New',
                 aiAnalysis: {
-                    type: 'Burst',
+                    type: 'Leak',
                     confidence: 99,
                     severity: 'Critical',
                     details: 'Fire hydrant appears to be damaged and is actively spraying large volumes of water.',
@@ -430,12 +450,12 @@
             },
             {
                 id: 5,
-                userName: 'Lerato Khumalo',
-                userAvatar: 'https://placehold.co/100x100/D1FAE5/065F46?text=LK',
+                userName: 'Sipho Dlamini',
+                userAvatar: 'https://placehold.co/100x100/EBF4FF/3B82F6?text=SD',
                 location: 'Sandton, Johannesburg',
                 lat: -26.1076,
                 lng: 28.0567,
-                image: 'https://media.newindianexpress.com/TNIE%2Fimport%2F2021%2F6%2F23%2Foriginal%2Fwater_theft.JPG?w=480&auto=format%2Ccompress&fit=max',
+                image: 'https://media.assettype.com/resident%2F2024-12-26%2Fqdoxebzk%2F13.jpg?w=480&auto=format%2Ccompress&fit=max',
                 timestamp: new Date(Date.now() - 15 * 60 * 60 * 1000).toISOString(),
                 status: 'New',
                 aiAnalysis: {
@@ -445,7 +465,7 @@
                     details: 'User reports potential illegal connection to main water line. Visible piping bypassing meter.',
                     duplicateFlag: null
                 },
-                userPoints: 300,
+                userPoints: 150, // Added to previous 150
                  commLog: [ { from: 'bot', msg: 'Report received. (Ref #5)', time: '15 hours ago' } ]
             },
             {
@@ -455,7 +475,7 @@
                 location: 'Sea Point, Cape Town',
                 lat: -33.9180,
                 lng: 18.3918,
-                image: 'https://www.comfortecphc.com/_managedFiles/posts/1522255085.jpeg',
+                image: 'https://www.titanplumbingandelectric.com/wp-content/uploads/2024/08/signs-of-a-hidden-water-leak.jpg',
                 timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
                 status: 'In Progress',
                 aiAnalysis: {
@@ -468,17 +488,17 @@
                 userPoints: 120,
                  commLog: [ 
                       { from: 'bot', msg: 'Report received. (Ref #6)', time: '1 day ago' },
-                      { from: 'operator', msg: 'Thanks David, Crew B is investigating.', time: '6 hours ago' }
+                      { from: 'operator', msg: 'Thanks David, Crew 2 is investigating.', time: '6 hours ago' }
                  ]
             },
             {
                 id: 7,
-                userName: 'Ananya Gupta',
-                userAvatar: 'https://placehold.co/100x100/FCE7F3/831843?text=AG',
+                userName: 'Thandiwe Zulu',
+                userAvatar: 'https://placehold.co/100x100/FCE7F3/831843?text=TZ',
                 location: 'Musgrave, Durban',
                 lat: -29.8491,
                 lng: 30.9800,
-                image: 'https://nz.rs-cdn.com/images/nwsz8-56ag4/blog/e9203d0977231ff2ec4686bd5061c32c__17a6/zoom793x594z100000cw793@2x.jpg.webp?etag=b0a8086cd2a2fe7966be5b0cf8a43ea0',
+                image: 'https://www.ultratechcement.com/content/ultratechcement/in/en/home/for-homebuilders/home-building-explained-single/descriptive-articles/water-leakage-problems-and-its-solutions/_jcr_content/root/container/container_2072089177/teaser_copy_1777596728.coreimg.jpeg/1711525657535/water-proofing-8.jpeg',
                 timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
                 status: 'Resolved',
                 aiAnalysis: {
@@ -495,15 +515,196 @@
                     { from: 'bot', msg: `🎁 Your ${sponsor.name} reward has been sent!`, time: '1 day ago' }
                 ]
             },
+             {
+                id: 8,
+                userName: 'Zanele Ndlovu',
+                userAvatar: 'https://placehold.co/100x100/E5E7EB/4B5563?text=ZN',
+                location: 'Centurion, Pretoria',
+                lat: -25.8672,
+                lng: 28.1884,
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQksRrckHPJTJpxG1pyVR2pcz0Asymg2jukEg&s',
+                timestamp: new Date(Date.now() - 30 * 60 * 1000).toISOString(),
+                status: 'New',
+                aiAnalysis: {
+                    type: 'Burst',
+                    confidence: 95,
+                    severity: 'High',
+                    details: 'Loud noise and water bubbling from tarmac. Imminent burst pipe.',
+                    duplicateFlag: null
+                },
+                userPoints: 80, // Added to previous 80
+                 commLog: [ { from: 'bot', msg: 'Report received. (Ref #8)', time: '30 minutes ago' } ]
+            },
+             {
+                id: 9,
+                userName: 'Nomusa Mkhize',
+                userAvatar: 'https://placehold.co/100x100/FEF3C7/F59E0B?text=NM',
+                location: 'Pietermaritzburg Central, PMB',
+                lat: -29.6001,
+                lng: 30.3794,
+                image: 'https://escarosacleaningandrestoration.com/wp-content/uploads/2023/03/Pipe-inside-wall-min.png',
+                timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+                status: 'Acknowledged',
+                aiAnalysis: {
+                    type: 'Leak',
+                    confidence: 70,
+                    severity: 'Medium',
+                    details: 'Damp patch on the wall of a municipal building. Internal leak suspected.',
+                    duplicateFlag: null
+                },
+                userPoints: 120, // Added to previous 120
+                 commLog: [ 
+                    { from: 'bot', msg: 'Report received. (Ref #9)', time: '1 day ago' },
+                    { from: 'bot', msg: 'Report Acknowledged. We are verifying the issue.', time: '10 hours ago' }
+                 ]
+            },
+            {
+                id: 10,
+                userName: 'Sipho Dlamini',
+                userAvatar: 'https://placehold.co/100x100/EBF4FF/3B82F6?text=SD',
+                location: 'Rosebank, Johannesburg',
+                lat: -26.1422,
+                lng: 28.0371,
+                image: 'https://thebrisbaneplumbers.com.au/wp-content/uploads/2024/01/water-leakage-1030x579.jpg',
+                timestamp: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString(),
+                status: 'Resolved',
+                aiAnalysis: {
+                    type: 'Leak',
+                    confidence: 90,
+                    severity: 'Medium',
+                    details: 'Slight persistent leak under traffic light robot. Now fixed.',
+                    duplicateFlag: null
+                },
+                userPoints: 250, // Added to previous 300
+                 commLog: [ 
+                    { from: 'bot', msg: 'Report received. (Ref #10)', time: '4 days ago' },
+                    { from: 'operator', msg: 'Resolved by Crew 4.', time: '2 days ago' },
+                    { from: 'bot', msg: `🎁 Your ${sponsor.name} reward has been sent!`, time: '2 days ago' }
+                 ]
+            },
+            {
+                id: 11,
+                userName: 'Lwazi Molefe',
+                userAvatar: 'https://placehold.co/100x100/FEE2E2/DC2626?text=LM',
+                location: 'Mitchells Plain, Cape Town',
+                lat: -34.0270,
+                lng: 18.5996,
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIzsMCqvfZBrK2hKr2WXdKf8DZ3XcltLUEew&s',
+                timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+                status: 'Resolved',
+                aiAnalysis: {
+                    type: 'Drip',
+                    confidence: 80,
+                    severity: 'Low',
+                    details: 'Intermittent dripping from an irrigation line near a park. Fixed as part of routine maintenance.',
+                    duplicateFlag: null
+                },
+                userPoints: 120, // Added to previous 250
+                 commLog: [ 
+                     { from: 'bot', msg: 'Report received. (Ref #11)', time: '1 day ago' },
+                     { from: 'operator', msg: 'Resolved.', time: '10 hours ago' },
+                     { from: 'bot', msg: `🎁 Your ${sponsor.name} reward has been sent!`, time: '10 hours ago' }
+                 ]
+            },
+            {
+                id: 12,
+                userName: 'Thandiwe Zulu',
+                userAvatar: 'https://placehold.co/100x100/FCE7F3/831843?text=TZ',
+                location: 'Umlazi, Durban',
+                lat: -30.0102,
+                lng: 30.8653,
+                image: 'https://static.vecteezy.com/system/resources/thumbnails/067/300/760/small/extreme-close-up-of-crystal-clear-water-droplet-falling-from-metal-pipe-photo.jpg',
+                timestamp: new Date(Date.now() - 45 * 60 * 1000).toISOString(),
+                status: 'New',
+                aiAnalysis: {
+                    type: 'Drip',
+                    confidence: 65,
+                    severity: 'Low',
+                    details: 'Small, intermittent drip from an exposed pipe near a business.',
+                    duplicateFlag: null
+                },
+                userPoints: 80, // Added to previous 250
+                 commLog: [ { from: 'bot', msg: 'Report received. (Ref #12)', time: '45 minutes ago' } ]
+            },
+            {
+                id: 13,
+                userName: 'Zanele Ndlovu',
+                userAvatar: 'https://placehold.co/100x100/E5E7EB/4B5563?text=ZN',
+                location: 'Lynnwood, Pretoria',
+                lat: -25.7538,
+                lng: 28.2520,
+                image: 'https://edis.ifas.ufl.edu/image/HS388/7945733/14253400/14253400-2048.webp',
+                timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString(),
+                status: 'In Progress',
+                aiAnalysis: {
+                    type: 'Leak',
+                    confidence: 82,
+                    severity: 'Medium',
+                    details: 'Damp patch on municipal pavement. Low flow, but persistent.',
+                    duplicateFlag: null
+                },
+                userPoints: 120, // Added to previous 160
+                 commLog: [ 
+                    { from: 'bot', msg: 'Report received. (Ref #13)', time: '6 hours ago' },
+                    { from: 'operator', msg: 'Crew 5 is on the way to investigate.', time: '1 hour ago' }
+                 ]
+            },
+            {
+                id: 14,
+                userName: 'Lwazi Molefe',
+                userAvatar: 'https://placehold.co/100x100/FEE2E2/DC2626?text=LM',
+                location: 'Mowbray, Cape Town',
+                lat: -33.9472,
+                lng: 18.4682,
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn_n1i9n_L_m0L_T3I3_LzJ4Zl5Y8J8Y4gQ&s',
+                timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+                status: 'Resolved',
+                aiAnalysis: {
+                    type: 'Leak',
+                    confidence: 78,
+                    severity: 'Low',
+                    details: 'Small leak at a meter connection. Easy fix.',
+                    duplicateFlag: null
+                },
+                userPoints: 120, // Added to previous 370
+                 commLog: [ 
+                      { from: 'bot', msg: 'Report received. (Ref #14)', time: '3 days ago' },
+                      { from: 'operator', msg: 'Resolved.', time: '2 days ago' },
+                      { from: 'bot', msg: `🎁 Your ${sponsor.name} reward has been sent!`, time: '2 days ago' }
+                 ]
+            },
+            {
+                id: 15,
+                userName: 'Nomusa Mkhize',
+                userAvatar: 'https://placehold.co/100x100/FEF3C7/F59E0B?text=NM',
+                location: 'Phoenix, Durban',
+                lat: -29.6923,
+                lng: 30.9575,
+                image: 'https://www.prolinerubber.com/wp-content/uploads/2021/01/Pinch-off-clamps-for-leaks.jpg',
+                timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000).toISOString(),
+                status: 'New',
+                aiAnalysis: {
+                    type: 'Burst',
+                    confidence: 90,
+                    severity: 'Critical',
+                    details: 'User reports sudden, large volume of water from the main road. High severity, potential road damage.',
+                    duplicateFlag: null
+                },
+                userPoints: 80, // Added to previous 240
+                 commLog: [ { from: 'bot', msg: 'Report received. (Ref #15)', time: '1 hour ago' } ]
+            },
         ];
-        
+
+        // 🚀 NEW: Mock Crew Data - Increased crew count
         const crews = [
-            { id: 1, name: 'Crew A (Alpha)', status: 'Idle', location: 'Sandton Depot' },
-            { id: 2, name: 'Crew B (Bravo)', status: 'On-Route', location: 'To Sea Point' },
-            { id: 3, name: 'Crew C (Charlie)', status: 'On-Site', location: 'Jayanagar Site' },
-            { id: 4, name: 'Crew D (Delta)', status: 'Idle', location: 'Arcadia Depot' },
+            { id: 1, name: 'Crew 1 (Alpha)', status: 'Idle', location: 'Midrand Depot' },
+            { id: 2, name: 'Crew 2 (Bravo)', status: 'On-Route', location: 'To Sea Point' },
+            { id: 3, name: 'Crew 3 (Charlie)', status: 'On-Site', location: 'Claremont Site' },
+            { id: 4, name: 'Crew 4 (Delta)', status: 'Idle', location: 'Rosebank Depot' },
+            { id: 5, name: 'Crew 5 (Echo)', status: 'On-Route', location: 'To Lynnwood' },
+            { id: 6, name: 'Crew 6 (Foxtrot)', status: 'Idle', location: 'Umhlanga Depot' },
         ];
-        
+
         // --- Color Maps ---
         // 🚀 MODIFIED: Added 'Acknowledged' status
         const statusColors = {
@@ -512,28 +713,27 @@
             'In Progress': 'bg-yellow-100 text-yellow-800 border-l-8 border-yellow-500',
             Resolved: 'bg-green-100 text-green-800 border-l-8 border-green-500',
         };
-
         const severityColors = {
             Low: 'text-green-600',
             Medium: 'text-yellow-600',
             High: 'text-orange-600',
             Critical: 'text-red-600',
         };
-        
         const severityBadges = {
-             Low: 'bg-green-100 text-green-800',
-             Medium: 'bg-yellow-100 text-yellow-800',
-             High: 'bg-orange-100 text-orange-800',
-             Critical: 'bg-red-100 text-red-800',
+            Low: 'bg-green-100 text-green-800',
+            Medium: 'bg-yellow-100 text-yellow-800',
+            High: 'bg-orange-100 text-orange-800',
+            Critical: 'bg-red-100 text-red-800',
         };
-        
+        // 🚀 MODIFIED: Added Drip as a type
         const typeBadges = {
             Leak: 'bg-blue-100 text-blue-800',
             Burst: 'bg-indigo-100 text-indigo-800',
             Theft: 'bg-red-100 text-red-800',
+            Drip: 'bg-teal-100 text-teal-800',
             Other: 'bg-gray-100 text-gray-800'
         };
-        
+
         // --- State Management ---
         let reports = [...initialReports];
         let selectedReport = null;
@@ -547,36 +747,37 @@
         // --- DOM Elements ---
         const reportListEl = document.getElementById('report-list');
         const filterButtonsEl = document.getElementById('filter-buttons');
+        const navTabsEl = document.getElementById('nav-tabs');
         const statsCardsEl = document.getElementById('stats-cards');
         const heroesListEl = document.getElementById('heroes-list');
-        const modalEl = document.getElementById('report-modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        const navTabsEl = document.getElementById('nav-tabs');
-        const tabPages = document.querySelectorAll('.tab-page');
         const crewListEl = document.getElementById('crew-list');
 
-        // --- Helper Functions ---
-        const timeSince = (date) => {
-            const seconds = Math.floor((new Date() - new Date(date)) / 1000);
-            let interval = seconds / 31536000;
-            if (interval > 1) return Math.floor(interval) + " years ago";
-            interval = seconds / 2592000;
-            if (interval > 1) return Math.floor(interval) + " months ago";
-            interval = seconds / 86400;
-            if (interval > 1) return Math.floor(interval) + " days ago";
-            interval = seconds / 3600;
-            if (interval > 1) return Math.floor(interval) + " hours ago";
-            interval = seconds / 60;
-            if (interval > 1) return Math.floor(interval) + " minutes ago";
-            return Math.floor(seconds) + " seconds ago";
+        const modalEl = document.getElementById('report-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const commLogEl = document.getElementById('modal-comm-log');
+
+        // --- Utility Functions ---
+        const timeAgo = (date) => {
+             const seconds = Math.floor((new Date() - new Date(date)) / 1000);
+             let interval = seconds / 31536000;
+             if (interval > 1) return Math.floor(interval) + " years ago";
+             interval = seconds / 2592000;
+             if (interval > 1) return Math.floor(interval) + " months ago";
+             interval = seconds / 86400;
+             if (interval > 1) return Math.floor(interval) + " days ago";
+             interval = seconds / 3600;
+             if (interval > 1) return Math.floor(interval) + " hours ago";
+             interval = seconds / 60;
+             if (interval > 1) return Math.floor(interval) + " minutes ago";
+             return Math.floor(seconds) + " seconds ago";
         };
-        
+
         const generateAIRecommendation = (report) => {
             const { severity, type } = report.aiAnalysis;
             const location = report.location.split(',')[0];
             
             if (severity === 'Critical') {
-                return `Critical ${type} at ${location}. Recommend IMMEDIATE dispatch of nearest idle crew (Crew A or D). High risk of property damage.`;
+                return `Critical ${type} at ${location}. Recommend **IMMEDIATE dispatch** of nearest idle crew (Crew 1, 4, or 6). High risk of property damage.`;
             }
             if (severity === 'High') {
                 return `High severity ${type}. Recommend dispatch within 2-4 hours. Assign to nearest available crew.`;
@@ -586,7 +787,7 @@
             }
             return `Low severity ${type}. Add to routine maintenance queue. No immediate action required.`;
         };
-        
+
         // --- Render Functions ---
 
         function renderStats() {
@@ -596,6 +797,7 @@
                 acknowledged: reports.filter(r => r.status === 'Acknowledged').length,
                 inProgress: reports.filter(r => r.status === 'In Progress').length,
             };
+
             statsCardsEl.innerHTML = `
                 <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 animate-pop-in">
                     <div class="flex items-center">
@@ -609,31 +811,31 @@
                     </div>
                 </div>
                 <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 animate-pop-in" style="animation-delay: 100ms;">
-                     <div class="flex items-center">
-                         <div class="p-3 bg-red-100 rounded-full">
-                             <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                         </div>
-                         <div class="ml-4">
-                             <h4 class="text-sm font-medium text-gray-500">New Reports</h4>
-                             <p class="text-3xl font-bold text-red-600">${stats.new}</p>
-                         </div>
-                     </div>
+                    <div class="flex items-center">
+                        <div class="p-3 bg-red-100 rounded-full">
+                            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.3 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-medium text-gray-500">Urgent: New/Critical</h4>
+                            <p class="text-3xl font-bold text-red-600">${reports.filter(r => r.status === 'New' && r.aiAnalysis.severity === 'Critical').length + stats.new}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 animate-pop-in" style="animation-delay: 200ms;">
-                     <div class="flex items-center">
-                         <div class="p-3 bg-sky-100 rounded-full">
-                              <svg class="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                         </div>
-                         <div class="ml-4">
-                             <h4 class="text-sm font-medium text-gray-500">Acknowledged</h4>
-                             <p class="text-3xl font-bold text-sky-600">${stats.acknowledged}</p>
-                         </div>
-                     </div>
+                    <div class="flex items-center">
+                        <div class="p-3 bg-sky-100 rounded-full">
+                            <svg class="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-medium text-gray-500">Acknowledged Reports</h4>
+                            <p class="text-3xl font-bold text-sky-600">${stats.acknowledged}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-4 animate-pop-in" style="animation-delay: 300ms;">
                     <div class="flex items-center">
                         <div class="p-3 bg-yellow-100 rounded-full">
-                             <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <div class="ml-4">
                             <h4 class="text-sm font-medium text-gray-500">Repairs In Progress</h4>
@@ -649,10 +851,10 @@
             const sortedReports = reports.sort((a, b) => {
                 return (severityOrder[b.aiAnalysis.severity] || 0) - (severityOrder[a.aiAnalysis.severity] || 0);
             });
-            
             const filteredReports = sortedReports.filter(r => currentFilter === 'All' || r.status === currentFilter);
-            reportListEl.innerHTML = ''; 
-            
+
+            reportListEl.innerHTML = '';
+
             if (filteredReports.length === 0) {
                 reportListEl.innerHTML = `<div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-8 text-center text-gray-500">No reports match the current filter.</div>`;
                 return;
@@ -661,13 +863,14 @@
             filteredReports.forEach((report, index) => {
                 let severityClass = severityColors[report.aiAnalysis.severity] || 'text-gray-500';
                 let borderColorClass = statusColors[report.status] || 'border-l-8 border-gray-500';
+                
                 if (report.aiAnalysis.severity === 'Critical' && report.status === 'New') {
                     borderColorClass = 'border-l-8 border-red-500 pulse-critical';
                 }
-                
+
                 const type = report.aiAnalysis.type || 'Other';
                 const typeBadge = typeBadges[type] || typeBadges['Other'];
-                
+
                 // 🚀 MODIFIED: Added AI Type and Confidence bar to the report card
                 const reportCardHTML = `
                     <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:ring-2 hover:ring-blue-400 transition-all duration-300 report-card cursor-pointer animate-pop-in" data-id="${report.id}" style="animation-delay: ${index * 50}ms;">
@@ -680,26 +883,27 @@
                                         <span class="text-sm text-gray-500 truncate">${report.location}</span>
                                     </div>
                                 </div>
-                                <span class="px-3 py-1 text-xs font-semibold rounded-full ${statusColors[report.status].split(' ')[0]} ${statusColors[report.status].split(' ')[1]} flex-shrink-0 ml-2">${report.status}</span>
+                                <span class="px-3 py-1 text-xs font-semibold rounded-full ${statusColors[report.status].split(' ')[0]} ${statusColors[report.status].split(' ')[1]} flex-shrink-0">
+                                    ${report.status}
+                                </span>
                             </div>
-                            
-                            <div class="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
-                                <div>
-                                    <strong>AI Type:</strong> <span class="font-semibold ${typeBadge.split(' ')[1]}">${type}</span>
+                            <div class="mt-3 flex items-center justify-between">
+                                <div class="flex gap-3 text-sm">
+                                    <span class="font-semibold ${severityClass} flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.3 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                        ${report.aiAnalysis.severity}
+                                    </span>
+                                    <span class="font-medium ${typeBadge.split(' ')[1]} flex items-center">
+                                        ${type}
+                                    </span>
                                 </div>
-                                <div class="w-1/3">
-                                    <span class="text-xs">Confidence:</span>
-                                    <div class="w-full bg-gray-200 rounded-full h-1.5">
-                                        <div class="bg-blue-600 h-1.5 rounded-full" style="width: ${report.aiAnalysis.confidence}%"></div>
-                                    </div>
-                                </div>
+                                <span class="text-xs text-gray-500">${timeAgo(report.timestamp)}</span>
                             </div>
-
-                            <div class="mt-3 flex items-center justify-between text-sm text-gray-600">
-                                <span class="text-xs">${timeSince(report.timestamp)}</span>
-                                <div class="flex items-center font-semibold ${severityClass}">
-                                    <span>${report.aiAnalysis.severity} Severity</span>
+                            <div class="mt-2">
+                                <div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
+                                    <div class="h-1.5 rounded-full" style="width: ${report.aiAnalysis.confidence}%; background-color: #2563EB;"></div>
                                 </div>
+                                <p class="text-xs text-gray-500 mt-1 text-right">AI Confidence: ${report.aiAnalysis.confidence}%</p>
                             </div>
                         </div>
                     </div>
@@ -707,27 +911,29 @@
                 reportListEl.innerHTML += reportCardHTML;
             });
         }
-        
+
         function renderHeroes() {
-            const users = {};
-            initialReports.forEach(report => {
-                if(users[report.userName]) {
-                    users[report.userName].points += report.userPoints;
-                    users[report.userName].reports += 1;
+            const userReports = reports.reduce((acc, report) => {
+                const existing = acc.find(u => u.name === report.userName);
+                if (existing) {
+                    existing.reports += 1;
+                    existing.points += report.userPoints;
                 } else {
-                    users[report.userName] = {
+                    acc.push({
                         name: report.userName,
                         avatar: report.userAvatar,
-                        points: report.userPoints,
                         reports: 1,
-                    }
+                        points: report.userPoints
+                    });
                 }
-            });
-            const userPoints = Object.values(users).sort((a, b) => b.points - a.points).slice(0, 5);
-            
+                return acc;
+            }, []);
+
+            userReports.sort((a, b) => b.points - a.points);
+
             heroesListEl.innerHTML = '';
-            userPoints.forEach((user, index) => {
-                let medal = '';
+            userReports.slice(0, 5).forEach((user, index) => {
+                let medal;
                 if (index === 0) medal = '🥇';
                 else if (index === 1) medal = '🥈';
                 else if (index === 2) medal = '🥉';
@@ -753,13 +959,16 @@
         
         function initializeMap() {
             if (map) return;
-            map = L.map('leaflet-map').setView([12.9716, 77.5946], 10);
+
+            map = L.map('leaflet-map').setView([-29.0, 24.0], 5); // South African coordinates
+
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
+
             map.fitBounds([
-                [-33.9180, 18.3918], // Cape Town
-                [12.9719, 77.6412]   // Bengaluru
+                [-34.0270, 18.3752], // Cape Town (West/South)
+                [-25.7592, 31.0664] // Durban/Pretoria (East/North)
             ]);
         }
         
@@ -768,12 +977,13 @@
 
             mapMarkers.forEach(marker => marker.remove());
             mapMarkers = [];
-            
+
             reports.forEach(report => {
                 const latLng = [report.lat, report.lng];
-                
                 const statusClass = report.status.replace(' ', '');
+                
                 const pingHtml = (report.status === 'New' || report.status === 'Acknowledged') ? `<div class="map-pin-ping ping-${statusClass}"></div>` : '';
+
                 const icon = L.divIcon({
                     className: 'custom-leaflet-icon',
                     html: `
@@ -785,7 +995,7 @@
                 });
 
                 const marker = L.marker(latLng, { icon: icon }).addTo(map);
-                
+
                 marker.on('click', () => {
                     handleReportClick({ target: marker._icon });
                 });
@@ -799,59 +1009,67 @@
             crews.forEach(crew => {
                 const statusColor = crew.status === 'Idle' ? 'text-green-500' : (crew.status === 'On-Route' ? 'text-blue-500' : 'text-yellow-600');
                 const bgColor = crew.status === 'Idle' ? 'bg-green-100' : (crew.status === 'On-Route' ? 'bg-blue-100' : 'bg-yellow-100');
+                
                 crewListEl.innerHTML += `
                     <li class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 border-b">
                         <div>
                             <p class="font-semibold text-gray-800">${crew.name}</p>
-                            <p class="text-sm text-gray-500">${crew.location}</p>
+                            <p class="text-xs text-gray-500">${crew.location}</p>
                         </div>
-                        <span class="font-semibold text-sm ${statusColor} px-2 py-0.5 rounded-full ${bgColor}">${crew.status}</span>
+                        <span class="text-sm font-medium ${statusColor} ${bgColor} px-3 py-1 rounded-full">${crew.status}</span>
                     </li>
                 `;
             });
         }
-        
+
         function renderAnalyticsCharts() {
-            const typeCounts = {};
-            reports.forEach(r => {
+            // Data for Report Types (Doughnut Chart)
+            const reportTypeCounts = reports.reduce((acc, r) => {
                 const type = r.aiAnalysis.type || 'Other';
-                typeCounts[type] = (typeCounts[type] || 0) + 1;
-            });
-            
-            const pieCtx = document.getElementById('reportTypesChart');
-            if (!pieCtx) return; 
+                acc[type] = (acc[type] || 0) + 1;
+                return acc;
+            }, {});
+
+            const doughnutData = {
+                labels: Object.keys(reportTypeCounts),
+                datasets: [{
+                    data: Object.values(reportTypeCounts),
+                    backgroundColor: [
+                        '#2563EB', // Leak (blue)
+                        '#4F46E5', // Burst (indigo)
+                        '#DC2626', // Theft (red)
+                        '#0D9488', // Drip (teal)
+                        '#9CA3AF'  // Other (gray)
+                    ],
+                    hoverOffset: 4
+                }]
+            };
+
+            const doughnutCtx = document.getElementById('reportTypesChart');
+            if (!doughnutCtx) return;
 
             if (reportTypesChart) {
                 reportTypesChart.destroy();
             }
-            reportTypesChart = new Chart(pieCtx, {
+
+            reportTypesChart = new Chart(doughnutCtx, {
                 type: 'doughnut',
-                data: {
-                    labels: Object.keys(typeCounts),
-                    datasets: [{
-                        label: 'Report Types',
-                        data: Object.values(typeCounts),
-                        backgroundColor: [
-                            '#3B82F6', // Leak
-                            '#4F46E5', // Burst
-                            '#EF4444', // Theft
-                            '#6B7280'  // Other
-                        ],
-                        hoverOffset: 4
-                    }]
-                },
+                data: doughnutData,
                 options: {
-                     responsive: true,
-                     plugins: {
-                        legend: { position: 'top' }
-                     }
-                }
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        },
+                    }
+                },
             });
 
+            // Data for Resolution Time (Bar Chart)
             const resolutionData = {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // Mock months
                 datasets: [{
-                    label: 'Avg. Resolution (Days)',
+                    label: 'Avg. Time (Days)',
                     data: [2.5, 2.1, 1.8, 1.5, 1.2, 0.9], // Mock data
                     backgroundColor: '#10B981'
                 }]
@@ -863,13 +1081,16 @@
             if (resolutionTimeChart) {
                 resolutionTimeChart.destroy();
             }
+            
             resolutionTimeChart = new Chart(barCtx, {
                 type: 'bar',
                 data: resolutionData,
                 options: {
                     responsive: true,
                     plugins: {
-                        legend: { display: false }
+                        legend: {
+                            display: false
+                        }
                     },
                     scales: {
                         y: {
@@ -880,9 +1101,7 @@
             });
         }
 
-
         // --- Modal Functions ---
-        
         let commSendBtnListener = null;
 
         function openModal(report) {
@@ -890,17 +1109,18 @@
             document.body.classList.add('modal-open');
             modalEl.classList.remove('hidden');
             modalEl.classList.add('flex');
-            
+
             // Populate basic info
             document.getElementById('modal-image').src = report.image;
             document.getElementById('modal-location').textContent = report.location;
             const statusEl = document.getElementById('modal-status');
             statusEl.textContent = `Status: ${report.status}`;
             statusEl.className = `inline-block px-3 py-1 text-sm font-semibold rounded-full mb-4 ${statusColors[report.status].split(' ')[0]} ${statusColors[report.status].split(' ')[1]}`;
-            
+
             // Populate AI Info
             const type = report.aiAnalysis.type || 'Other';
             const typeBadge = typeBadges[type] || typeBadges['Other'];
+            
             const typeEl = document.getElementById('ai-type-badge');
             typeEl.textContent = type;
             typeEl.className = `px-3 py-1 text-xs font-semibold rounded-full ${typeBadge}`;
@@ -912,58 +1132,71 @@
             document.getElementById('ai-confidence').textContent = `${report.aiAnalysis.confidence}`;
             document.getElementById('ai-details').textContent = report.aiAnalysis.details;
             document.getElementById('ai-recommendation').textContent = generateAIRecommendation(report);
-
+            
             const duplicateEl = document.getElementById('ai-duplicate');
             const mergeBtn = document.getElementById('action-merge-btn');
             if (report.aiAnalysis.duplicateFlag) {
                 duplicateEl.textContent = `Flag: ${report.aiAnalysis.duplicateFlag}`;
                 duplicateEl.classList.remove('hidden');
-                mergeBtn.textContent = `Merge with ${report.aiAnalysis.duplicateFlag}`;
+                mergeBtn.textContent = `Merge with ${report.aiAnalysis.duplicateFlag.split(' ')[2]}`;
                 mergeBtn.classList.remove('hidden');
             } else {
                 duplicateEl.classList.add('hidden');
                 mergeBtn.classList.add('hidden');
             }
-            
+
             // Populate User Info
             document.getElementById('modal-avatar').src = report.userAvatar;
             document.getElementById('modal-username').textContent = report.userName;
-            document.getElementById('modal-points-text').textContent = `${report.userPoints} Points (Trust Score: ${report.userPoints > 100 ? 'High' : 'Medium'})`;
+            document.getElementById('modal-points-text').textContent = `${reports.filter(r => r.userName === report.userName).reduce((sum, r) => sum + r.userPoints, 0)} Points (Trust Score: ${reports.filter(r => r.userName === report.userName).reduce((sum, r) => sum + r.userPoints, 0) > 300 ? 'High' : 'Medium'})`;
             document.getElementById('modal-timestamp').textContent = `Reported on ${new Date(report.timestamp).toLocaleString()}`;
             
             // Populate Comm Log
-            const commLogEl = document.getElementById('modal-comm-log');
-            renderCommLog(report.commLog);
-            
-            // 🚀 MODIFIED: Re-render comm log in its own function
-            function renderCommLog(logData) {
-                commLogEl.innerHTML = '';
-                logData.forEach(log => {
-                    commLogEl.innerHTML += `
-                        <div class="p-2 rounded-lg ${log.from === 'bot' ? 'bg-gray-100' : (log.from === 'operator' ? 'bg-blue-50' : 'bg-green-50')}">
-                            <p class="text-gray-700">${log.msg}</p>
-                            <p class="text-xs text-gray-400 text-right">${log.time}</p>
-                        </div>
-                    `;
-                });
-                commLogEl.scrollTop = commLogEl.scrollHeight;
-            }
-
-            // Set up manual chat sender
-            const commInput = document.getElementById('comm-log-input');
-            const commSendBtn = document.getElementById('comm-log-send-btn');
-            
-            commSendBtnListener = () => {
-                const message = commInput.value;
-                if (message.trim() === '') return;
-                const newLog = { from: 'operator', msg: message, time: 'Just now' };
-                report.commLog.push(newLog);
-                commInput.value = '';
-                renderCommLog(report.commLog);
+            const renderCommLog = () => {
+                 commLogEl.innerHTML = '';
+                 report.commLog.forEach(log => {
+                     const isOperator = log.from === 'operator';
+                     const msgClass = isOperator ? 'bg-blue-50 text-blue-800 border-l-2 border-blue-400 p-2 rounded-r-md' : 'bg-gray-100 text-gray-700 border-l-2 border-gray-400 p-2 rounded-r-md';
+                     const sender = isOperator ? 'Operator' : 'AI/System';
+                     
+                     commLogEl.innerHTML += `
+                         <div class="${msgClass}">
+                             <p class="font-semibold">${sender}:</p>
+                             <p>${log.msg}</p>
+                             <p class="text-xs text-gray-500 text-right">${log.time}</p>
+                         </div>
+                     `;
+                 });
+                 commLogEl.scrollTop = commLogEl.scrollHeight; // Auto-scroll to bottom
             };
-            commSendBtn.removeEventListener('click', commSendBtnListener); // Clean old
-            commSendBtn.addEventListener('click', commSendBtnListener); // Add new
+            renderCommLog();
+            
+            // Re-attach listener for sending messages
+            const commSendBtn = document.getElementById('comm-log-send-btn');
+            const commInput = document.getElementById('comm-log-input');
 
+            // Remove old listener if it exists
+            if (commSendBtnListener) {
+                commSendBtn.removeEventListener('click', commSendBtnListener);
+            }
+            
+            // Create and store new listener
+            commSendBtnListener = () => {
+                 const message = commInput.value.trim();
+                 if (message) {
+                     const newLog = { 
+                         from: 'operator', 
+                         msg: `Operator replied: "${message}"`, 
+                         time: 'Just now' 
+                     };
+                     report.commLog.push(newLog);
+                     renderCommLog();
+                     commInput.value = '';
+                 }
+            };
+
+            commSendBtn.addEventListener('click', commSendBtnListener);
+            
             // --- 🚀 NEW: Workflow Action Button Logic ---
             const actionGroup = document.getElementById('action-button-group');
             const ackBtn = document.getElementById('action-acknowledge-btn');
@@ -994,128 +1227,124 @@
             }
             
             // --- Add Event Listeners (using clones to prevent duplicates) ---
-            
             // 1. Acknowledge Button
             const newAckBtn = ackBtn.cloneNode(true);
             newAckBtn.addEventListener('click', () => {
-                const newLog = { from: 'bot', msg: 'Report Acknowledged. We are verifying the issue.', time: 'Just now' };
-                report.commLog.push(newLog);
-                updateStatus(report.id, 'Acknowledged');
+                 const newLog = { from: 'bot', msg: 'Report Acknowledged. We are verifying the issue.', time: 'Just now' };
+                 report.commLog.push(newLog);
+                 updateStatus(report.id, 'Acknowledged');
             });
             ackBtn.parentNode.replaceChild(newAckBtn, ackBtn);
 
             // 2. Assign Button
             const newAssignBtn = assignBtn.cloneNode(true);
             newAssignBtn.addEventListener('click', () => {
-                const crewName = crewDropdown.value;
-                if (!crewName) {
-                    alert('Please select a crew to assign.');
-                    return;
-                }
-                const newLog = { from: 'operator', msg: `Report verified. ${crewName} has been assigned.`, time: 'Just now' };
-                report.commLog.push(newLog);
-                updateStatus(report.id, 'In Progress');
+                 const crewName = crewDropdown.value;
+                 if (!crewName) {
+                     alert('Please select a crew to assign.');
+                     return;
+                 }
+                 const newLog = { from: 'operator', msg: `Report verified. ${crewName} has been assigned.`, time: 'Just now' };
+                 report.commLog.push(newLog);
+                 updateStatus(report.id, 'In Progress');
             });
             assignBtn.parentNode.replaceChild(newAssignBtn, assignBtn);
 
             // 3. Resolve Button (opens reward panel)
             const newResolveBtn = resolveBtn.cloneNode(true);
             newResolveBtn.addEventListener('click', () => {
-                actionGroup.style.display = 'none'; // Hide action buttons
-                rewardSection.classList.add('active'); // Show reward panel
+                 actionGroup.style.display = 'none';
+                 rewardSection.classList.add('active');
             });
             resolveBtn.parentNode.replaceChild(newResolveBtn, resolveBtn);
 
-            // 4. Send Reward Button (final step)
+            // 4. Send Reward Button (Final Resolution)
             const newRewardBtn = rewardBtn.cloneNode(true);
             newRewardBtn.addEventListener('click', () => {
-                const litersSaved = document.getElementById('liters-saved-input').value || '0';
-                
-                const log1 = { from: 'operator', msg: `🎉 Leak Fixed! Your action helped save an estimated ${litersSaved} liters. Thank you!`, time: 'Just now' };
-                const log2 = { from: 'bot', msg: `🎁 Your reward from ${sponsor.name} has been sent!`, time: 'Just now' };
-                report.commLog.push(log1, log2);
-                
-                updateStatus(report.id, 'Resolved');
+                 const litersSaved = document.getElementById('liters-saved-input').value;
+                 if (!litersSaved) {
+                     alert('Please enter the estimated water saved.');
+                     return;
+                 }
+                 const finalLog = { from: 'operator', msg: `🎉 Leak Fixed! Your action helped save an estimated ${litersSaved} liters. Thank you!`, time: 'Just now' };
+                 const rewardLog = { from: 'bot', msg: `🎁 Your ${sponsor.name} reward has been sent!`, time: 'Just now' };
+                 report.commLog.push(finalLog);
+                 report.commLog.push(rewardLog);
+                 updateStatus(report.id, 'Resolved');
             });
             rewardBtn.parentNode.replaceChild(newRewardBtn, rewardBtn);
+            
+            
         }
-        
+
         function closeModal() {
-            selectedReport = null;
-            document.body.classList.remove('modal-open');
             modalEl.classList.add('hidden');
             modalEl.classList.remove('flex');
-            
-            // Clean up comm log listener
-            const commSendBtn = document.getElementById('comm-log-send-btn');
-            if (commSendBtnListener) {
-                commSendBtn.removeEventListener('click', commSendBtnListener);
-                commSendBtnListener = null;
+            document.body.classList.remove('modal-open');
+            selectedReport = null;
+            rerenderAll(); // Re-render triage dashboard to update status/pins
+        }
+        
+        // --- Event Handlers ---
+        function handleTabClick(e) {
+            const button = e.target.closest('.tab-btn');
+            if (!button) return;
+
+            activeTab = button.dataset.tab;
+
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            document.querySelectorAll('.tab-page').forEach(page => page.classList.add('hidden'));
+            document.getElementById(`${activeTab}-page`).classList.remove('hidden');
+
+            // Initialize/re-render components for the new tab
+            if (activeTab === 'triage') {
+                 rerenderTriage();
+            } else if (activeTab === 'crews') {
+                renderCrews();
+            } else if (activeTab === 'analytics') {
+                renderAnalyticsCharts();
             }
         }
 
-        // --- Event Handlers ---
-        
         function handleFilterClick(e) {
             const button = e.target.closest('.filter-btn');
             if (!button) return;
             
             currentFilter = button.dataset.filter;
             
-            filterButtonsEl.querySelectorAll('.filter-btn').forEach(btn => {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('bg-white', 'text-gray-800', 'shadow-sm');
                 btn.classList.add('text-gray-500', 'hover:bg-gray-100');
             });
+            
             button.classList.add('bg-white', 'text-gray-800', 'shadow-sm');
             button.classList.remove('text-gray-500', 'hover:bg-gray-100');
             
             renderReports();
         }
-        
+
         function handleReportClick(e) {
             const card = e.target.closest('.report-card, .custom-leaflet-icon');
             if (!card) return;
-            
+
             const reportId = parseInt(card.dataset.id);
             const report = reports.find(r => r.id === reportId);
+
             if (report) {
                 openModal(report);
             }
         }
-        
+
         function updateStatus(id, newStatus) {
-            reports = reports.map(report =>
-                report.id === id ? { ...report, status: newStatus } : report
-            );
-            closeModal();
-            rerenderAll();
-        }
-        
-        function handleTabClick(e) {
-            const button = e.target.closest('.tab-btn');
-            if (!button) return;
+            reports = reports.map(report => report.id === id ? { ...report, status: newStatus } : report );
             
-            activeTab = button.dataset.tab;
-            
-            navTabsEl.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-                btn.classList.add('text-gray-500', 'hover:text-gray-700');
-            });
-            button.classList.add('active');
-            button.classList.remove('text-gray-500', 'hover:text-gray-700');
-            
-            tabPages.forEach(page => {
-                if (page.id === `${activeTab}-page`) {
-                    page.classList.remove('hidden');
-                } else {
-                    page.classList.add('hidden');
-                }
-            });
-            
-            if (activeTab === 'triage') {
-                if(map) {
-                     setTimeout(() => map.invalidateSize(), 10);
-                }
+            // Re-render UI elements affected by status change
+            if (selectedReport && selectedReport.id === id) {
+                 selectedReport.status = newStatus;
+                 openModal(selectedReport); // Re-open the modal with new status/buttons
+            } else if (activeTab === 'triage') {
                 rerenderTriage();
             } else if (activeTab === 'crews') {
                 renderCrews();
